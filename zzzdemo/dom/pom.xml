@@ -111,8 +111,8 @@
 		</dependency>
 
 		<dependency>
-            <groupId>org.apache.isis.objectstore</groupId>
-			<artifactId>isis-objectstore-jdo-applib</artifactId>
+            <groupId>org.apache.isis.core</groupId>
+			<artifactId>isis-core-objectstore-jdo-datanucleus</artifactId>
 		</dependency>
         
 		<dependency>
@@ -122,21 +122,25 @@
 		</dependency>
 
         <!-- Bytecode libraries (for mocking) -->
+<!--
         <dependency>
             <groupId>asm</groupId>
             <artifactId>asm</artifactId>
             <scope>test</scope>
         </dependency>
+-->
         <dependency>
             <groupId>org.objenesis</groupId>
             <artifactId>objenesis</artifactId>
             <scope>test</scope>
         </dependency>
+<!--
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib-nodep</artifactId>
             <scope>test</scope>
         </dependency>
+-->
 
         <dependency>
             <groupId>com.danhaywood.isis.wicket</groupId>

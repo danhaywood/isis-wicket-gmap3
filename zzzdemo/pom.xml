@@ -32,11 +32,12 @@
 	<properties>
 		<danhaywood-isis-wicket-gmap3.version>1.4.0</danhaywood-isis-wicket-gmap3.version>
 
-        <isis.version>1.4.0</isis.version>
-		<isis-objectstore-jdo.version>1.4.0</isis-objectstore-jdo.version>
-		<isis-viewer-wicket.version>1.4.0</isis-viewer-wicket.version>
-		<isis-viewer-restfulobjects.version>2.2.0</isis-viewer-restfulobjects.version>
-		<isis-security-shiro.version>1.4.0</isis-security-shiro.version>
+        <isis.version>1.7.0-SNAPSHOT</isis.version>
+		<isis-objectstore-jdo.version>1.7.0-SNAPSHOT</isis-objectstore-jdo.version>
+		<isis-viewer-wicket.version>1.7.0-SNAPSHOT</isis-viewer-wicket.version>
+		<isis-viewer-restfulobjects.version>1.7.0-SNAPSHOT</isis-viewer-restfulobjects.version>
+		<isis-security-shiro.version>1.7.0-SNAPSHOT</isis-security-shiro.version>
+		<isis-module-devutils.version>1.7.0-SNAPSHOT</isis-module-devutils.version>
 
         <!-- must be consistent with the versions defined by the JDO Objectstore -->
         <datanucleus-accessplatform-jdo-rdbms.version>3.3.6</datanucleus-accessplatform-jdo-rdbms.version>
@@ -286,8 +287,8 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.apache.isis.objectstore</groupId>
-				<artifactId>isis-objectstore-jdo</artifactId>
+				<groupId>org.apache.isis.core</groupId>
+				<artifactId>isis-core-objectstore-jdo-datanucleus</artifactId>
 				<version>${isis-objectstore-jdo.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
@@ -302,16 +303,16 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.apache.isis.viewer</groupId>
-				<artifactId>isis-viewer-restfulobjects</artifactId>
+				<groupId>org.apache.isis.core</groupId>
+				<artifactId>isis-core-viewer-restfulobjects-applib</artifactId>
 				<version>${isis-viewer-restfulobjects.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 
 			<dependency>
-				<groupId>org.apache.isis.security</groupId>
-				<artifactId>isis-security-shiro</artifactId>
+				<groupId>org.apache.isis.core</groupId>
+				<artifactId>isis-core-security-shiro</artifactId>
 				<version>${isis-security-shiro.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
@@ -342,6 +343,12 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            
+	        <dependency>
+	        	<groupId>org.apache.isis.module</groupId>
+	        	<artifactId>isis-module-devutils-impl</artifactId>
+	        	<version>${isis-module-devutils.version}</version>
+	        </dependency>
 
         </dependencies>
     </dependencyManagement>
