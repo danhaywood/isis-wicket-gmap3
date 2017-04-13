@@ -19,6 +19,8 @@
 
 package org.isisaddons.wicket.gmap3.fixture.scripts.todo;
 
+import java.util.Collections;
+
 import org.apache.isis.applib.fixturescripts.FixtureScript;
 import org.apache.isis.objectstore.jdo.applib.service.support.IsisJdoSupport;
 
@@ -55,10 +57,10 @@ public class Gmap3ToDoItemsFixture extends FixtureScript {
         createToDoItemForUser("Stage Isis release", user, executionContext);
 
         // set up some dependencies
-        t1.add(t2);
-        t1.add(t3);
-        t1.add(t4);
-        
+        t1.add(Collections.singletonList(t2));
+        t1.add(Collections.singletonList(t3));
+        t1.add(Collections.singletonList(t4));
+
         getContainer().flush();
     }
 

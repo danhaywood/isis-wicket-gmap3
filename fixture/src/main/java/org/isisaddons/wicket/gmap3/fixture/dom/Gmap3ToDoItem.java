@@ -262,8 +262,8 @@ public class Gmap3ToDoItem implements Comparable<Gmap3ToDoItem>, Locatable {
 
     
     @MemberOrder(name="dependencies", sequence="1")
-    public Gmap3ToDoItem add(final Gmap3ToDoItem toDoItem) {
-        getDependencies().add(toDoItem);
+    public Gmap3ToDoItem add(final List<Gmap3ToDoItem> toDoItems) {
+        getDependencies().addAll(toDoItems);
         return this;
     }
     public List<Gmap3ToDoItem> autoComplete0Add(final @MinLength(2) String search) {
@@ -273,41 +273,24 @@ public class Gmap3ToDoItem implements Comparable<Gmap3ToDoItem>, Locatable {
         return list;
     }
 
-    public String disableAdd(final Gmap3ToDoItem toDoItem) {
+    public String disableAdd() {
         if(isComplete()) {
             return "Cannot add dependencies for items that are complete";
         }
         return null;
     }
-    // validate the provided argument prior to invoking action
-    public String validateAdd(final Gmap3ToDoItem toDoItem) {
-        if(getDependencies().contains(toDoItem)) {
-            return "Already a dependency";
-        }
-        if(toDoItem == this) {
-            return "Can't set up a dependency to self";
-        }
-        return null;
-    }
 
     @MemberOrder(name="dependencies", sequence="2")
-    public Gmap3ToDoItem remove(final Gmap3ToDoItem toDoItem) {
-        getDependencies().remove(toDoItem);
+    public Gmap3ToDoItem remove(final List<Gmap3ToDoItem> toDoItems) {
+        getDependencies().removeAll(toDoItems);
         return this;
     }
     // disable action dependent on state of object
-    public String disableRemove(final Gmap3ToDoItem toDoItem) {
+    public String disableRemove() {
         if(isComplete()) {
             return "Cannot remove dependencies for items that are complete";
         }
         return getDependencies().isEmpty()? "No dependencies to remove": null;
-    }
-    // validate the provided argument prior to invoking action
-    public String validateRemove(final Gmap3ToDoItem toDoItem) {
-        if(!getDependencies().contains(toDoItem)) {
-            return "Not a dependency";
-        }
-        return null;
     }
     // provide a drop-down
     public Collection<Gmap3ToDoItem> choices0Remove() {

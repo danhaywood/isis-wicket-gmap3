@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
-Copyright 2013~2014 Dan Haywood
+Copyright 2013~2017 Dan Haywood
 
 Licensed under the Apache License, Version 2.0 (the "License"); 
 you may not use this file except in compliance with the License. 
@@ -59,8 +59,11 @@ language governing permissions and limitations under the License.
     </developers>
 
     <properties>
-        <wicketstuff-gmap3.version>6.25.0</wicketstuff-gmap3.version>
-        <wicket.version>6.25.0</wicket.version>
+
+        <!--          1.14.0.20170319-1823 is based on Wicket 7 -->
+        <isis.version>1.14.0.20170319-1823</isis.version>
+
+        <wicketstuff-gmap3.version>7.6.0</wicketstuff-gmap3.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -121,17 +124,6 @@ language governing permissions and limitations under the License.
         </plugins>
     </build>
 
-    <dependencyManagement>
-        <dependencies>
-            <!--  overriding the transitive dependency brought in by wicketstuff-gmap3 -->
-            <dependency>
-                <groupId>org.apache.wicket</groupId>
-                <artifactId>wicket</artifactId>
-                <version>${wicket.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
         <dependency>
             <groupId>org.apache.isis.core</groupId>
@@ -146,10 +138,20 @@ language governing permissions and limitations under the License.
         </dependency>
 
         <dependency>
+            <groupId>org.apache.isis.core</groupId>
+            <artifactId>isis-core-viewer-wicket-ui</artifactId>
+            <version>${isis.version}</version>
+            <!-- to minimize pollution of classpath -->
+            <optional>true</optional>
+        </dependency>
+        <!--
+        <dependency>
             <groupId>org.apache.isis.viewer</groupId>
             <artifactId>isis-viewer-wicket-ui</artifactId>
             <version>${isis.version}</version>
+            <optional>true</optional>
         </dependency>
+        -->
 
         <dependency>
             <groupId>org.wicketstuff</groupId>
